@@ -17,10 +17,29 @@ public class Main {
         for (int  i = 0; i < 10; i++){
             int x = rand.nextInt(11) + 1;
             int y = rand.nextInt(11) + 1;
-            System.out.println("What is " + x + " + " + y + "?");
-            int response = input.nextInt();
+            int operatorId = rand.nextInt(4);
+            String operator;
+            switch (operatorId){
+                default:
+                case 0:
+                    operator = "+";
+                    break;
+                case 1:
+                    operator = "-";
+                    break;
+                case 2:
+                    operator = "*";
+                    break;
+                case 3:
+                    operator = "/";
+                    break;
+            }
 
-            if (response == (x+y)){
+            Question question = new Question(x, y, operator);
+            question.showQuestion();
+
+            int response = input.nextInt();
+            if (question.checkAnswer(response)){
                 System.out.println("Congratulations, your answer is correct!");
                 score++;
             }
