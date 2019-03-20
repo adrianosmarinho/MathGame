@@ -7,13 +7,13 @@ import java.util.Scanner;
  */
 public class Main {
 
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
+    private int score;
+
+    public void playGame(){
 
         Random rand = new Random();             // for generating random numbers in the questions
         Scanner input = new Scanner(System.in); // for getting the user input
 
-        int score = 0;
         for (int  i = 0; i < 10; i++){
             int x = rand.nextInt(11) + 1;
             int y = rand.nextInt(11) + 1;
@@ -50,5 +50,16 @@ public class Main {
         }
 
         System.out.println("Game Over, your score was: " + score);
+
+    }
+
+    public void playMultipleGames(){
+        for (int i = 0; i < 10; i++)
+            playGame();
+    }
+
+    public static void main(String[] args) {
+        Main main = new Main();
+        main.playGame();
     }
 }
